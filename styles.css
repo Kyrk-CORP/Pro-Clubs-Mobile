@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: #07150f; color: #f4fff7; font-family: Inter, system-ui, sans-serif; touch-action: none; }
+.game-shell { position: fixed; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at top, #183724, #06100b 72%); }
+#game { width: 100vw; height: 100vh; display: block; }
+.hud { position: fixed; z-index: 5; backdrop-filter: blur(10px); background: rgba(2, 13, 8, .58); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+.top-hud { top: max(10px, env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); width: min(92vw, 760px); border-radius: 18px; padding: 10px 14px; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.top-hud strong { display: block; font-size: 15px; letter-spacing: .04em; }
+.top-hud span { opacity: .78; font-size: 12px; }
+.scoreboard { display: flex; gap: 10px; align-items: center; font-weight: 800; white-space: nowrap; }
+.camera-panel { left: 50%; bottom: calc(128px + env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; gap: 8px; padding: 8px; border-radius: 999px; }
+button { border: 0; color: #f4fff7; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 10px 13px; font-weight: 800; letter-spacing: .02em; }
+button.active, button:active { background: #29d86f; color: #06200f; }
+.hidden { display: none; }
+.touch-controls { position: fixed; inset: auto 0 max(18px, env(safe-area-inset-bottom)) 0; z-index: 6; display: flex; justify-content: space-between; align-items: end; padding: 0 22px; pointer-events: none; }
+.joystick { width: 118px; height: 118px; border-radius: 50%; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.22); position: relative; pointer-events: auto; }
+.joystick span { position: absolute; width: 48px; height: 48px; border-radius: 50%; left: 33px; top: 33px; background: linear-gradient(#fff, #9df7bf); box-shadow: 0 8px 18px rgba(0,0,0,.35); }
+.actions { display: grid; grid-template-columns: repeat(2, 76px); gap: 10px; pointer-events: auto; }
+.actions button { width: 76px; height: 58px; padding: 0; }
+#sprintBtn { grid-column: span 2; width: 162px; }
+.tip { position: fixed; top: 78px; left: 50%; transform: translateX(-50%); margin: 0; padding: 7px 12px; max-width: 92vw; border-radius: 999px; font-size: 12px; color: #d9ffe5; background: rgba(0,0,0,.35); z-index: 5; }
+@media (max-width: 620px) { .top-hud { align-items: flex-start; } .top-hud > div:first-child span { display: none; } .scoreboard { font-size: 12px; } .tip { display: none; } .camera-panel { bottom: calc(142px + env(safe-area-inset-bottom)); max-width: 96vw; } button { font-size: 12px; padding: 9px 10px; } }
